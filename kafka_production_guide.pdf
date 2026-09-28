@@ -1,0 +1,289 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 4 0 R 5 0 R 6 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 11 0 R /Resources << /Font << /F1 12 0 R >> >> >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 12 0 R /Resources << /Font << /F1 12 0 R >> >> >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 13 0 R /Resources << /Font << /F1 12 0 R >> >> >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 14 0 R /Resources << /Font << /F1 12 0 R >> >> >>
+endobj
+11 0 obj
+<< /Length 1500 >>
+stream
+BT
+/F1 18 Tf
+50 760 Td
+(Apache Kafka & KRaft) Tj
+ET
+BT
+/F1 11 Tf
+50 730 Td
+(The Ultimate Interview & Production Guide) Tj
+ET
+BT
+/F1 10 Tf
+50 700 Td
+(1. Kafka brokers: servers that store and serve partitions and handle producer/consumer traffic.) Tj
+ET
+BT
+/F1 10 Tf
+50 685 Td
+(2. Topics and partitions: logical streams broken into ordered logs for parallelism and scalability.) Tj
+ET
+BT
+/F1 10 Tf
+50 670 Td
+(3. Producers: push records to leader partition, use keys, batching, and compression for throughput.) Tj
+ET
+BT
+/F1 10 Tf
+50 655 Td
+(4. Consumers: read from offsets and work in consumer groups to parallelize work safely.) Tj
+ET
+BT
+/F1 10 Tf
+50 640 Td
+(5. Consumer offsets: committed to __consumer_offsets to support restart and replay.) Tj
+ET
+BT
+/F1 10 Tf
+50 625 Td
+(6. ZooKeeper: older Kafka coordination layer for metadata, brokers, and controller election.) Tj
+ET
+BT
+/F1 10 Tf
+50 610 Td
+(7. KRaft: Kafka-native Raft metadata quorum without external ZooKeeper dependency.) Tj
+ET
+BT
+/F1 10 Tf
+50 595 Td
+(8. ISR: In-Sync Replicas that are fully caught up and eligible to become partition leaders.) Tj
+ET
+BT
+/F1 10 Tf
+50 580 Td
+(9. Data durability: replication factor, acks=all, and min.insync.replicas protect against loss.) Tj
+ET
+endstream
+endobj
+12 0 obj
+<< /Length 1700 >>
+stream
+BT
+/F1 18 Tf
+50 760 Td
+(ZooKeeper vs KRaft) Tj
+ET
+BT
+/F1 10 Tf
+50 730 Td
+(ZooKeeper mode uses Zab consensus and a quorum of ensemble nodes.) Tj
+ET
+BT
+/F1 10 Tf
+50 715 Td
+(Leader election: nodes vote based on zxid and myid, and a quorum selects the leader.) Tj
+ET
+BT
+/F1 10 Tf
+50 700 Td
+(Kafka controller election: broker creates /controller and first write wins.) Tj
+ET
+BT
+/F1 10 Tf
+50 685 Td
+(Partition leader election: controller selects a leader from ISR when a leader fails.) Tj
+ET
+BT
+/F1 10 Tf
+50 670 Td
+(KRaft uses Raft protocol directly in Kafka metadata quorum.) Tj
+ET
+BT
+/F1 10 Tf
+50 655 Td
+(Leader election: followers time out, become candidates, and require majority quorum votes.) Tj
+ET
+BT
+/F1 10 Tf
+50 640 Td
+(Heartbeats: leader sends periodic heartbeats; if missing, followers trigger a new election.) Tj
+ET
+BT
+/F1 10 Tf
+50 625 Td
+(KRaft removes the external ZooKeeper dependency and simplifies operations.) Tj
+ET
+BT
+/F1 10 Tf
+50 610 Td
+(Modern Kafka deployments prefer KRaft for metadata and failover control.) Tj
+ET
+BT
+/F1 11 Tf
+50 585 Td
+(Interview view: KRaft is faster, simpler, and more self-contained than ZooKeeper mode.) Tj
+ET
+endstream
+endobj
+13 0 obj
+<< /Length 2200 >>
+stream
+BT
+/F1 18 Tf
+50 760 Td
+(Interview Questions and Scenarios) Tj
+ET
+BT
+/F1 10 Tf
+50 730 Td
+(Q: What is Kafka? A: Distributed event streaming platform for high-throughput, durable pipelines.) Tj
+ET
+BT
+/F1 10 Tf
+50 715 Td
+(Q: What is a consumer group? A: A set of consumers that share partition ownership.) Tj
+ET
+BT
+/F1 10 Tf
+50 700 Td
+(Q: What is an offset? A: The position of a message within a partition.) Tj
+ET
+BT
+/F1 10 Tf
+50 685 Td
+(Q: Why use Kafka? A: Decoupling, replayability, scalability, fault tolerance, and throughput.) Tj
+ET
+BT
+/F1 10 Tf
+50 670 Td
+(Scenario: Consumer lag rising rapidly. Action: scale consumers, add partitions, and monitor lag.) Tj
+ET
+BT
+/F1 10 Tf
+50 655 Td
+(Scenario: Broker fails. Action: use replication and ISR elections to maintain availability.) Tj
+ET
+BT
+/F1 10 Tf
+50 640 Td
+(Scenario: Data loss during writes. Action: verify acks=all, replication factor, and min.insync.replicas.) Tj
+ET
+BT
+/F1 10 Tf
+50 625 Td
+(Scenario: Duplicate processing. Action: use idempotent producers and dedupe logic in consumers.) Tj
+ET
+BT
+/F1 10 Tf
+50 610 Td
+(Scenario: Consumer rebalance loops. Action: tune session.timeout.ms and max.poll.interval.ms.) Tj
+ET
+BT
+/F1 10 Tf
+50 595 Td
+(Scenario: Payment processing requires exactly-once semantics. Use Kafka transactions + read_committed.) Tj
+ET
+BT
+/F1 10 Tf
+50 580 Td
+(Production answer: Kafka provides at-least-once by default; exactly-once requires deliberate design.) Tj
+ET
+endstream
+endobj
+14 0 obj
+<< /Length 2200 >>
+stream
+BT
+/F1 18 Tf
+50 760 Td
+(Production Configs and Monitoring) Tj
+ET
+BT
+/F1 10 Tf
+50 730 Td
+(Producer config: bootstrap.servers, acks=all, enable.idempotence=true, linger.ms=20, compression.type=zstd.) Tj
+ET
+BT
+/F1 10 Tf
+50 715 Td
+(Consumer config: group.id, auto.offset.reset=earliest, enable.auto.commit=false, max.poll.records=500.) Tj
+ET
+BT
+/F1 10 Tf
+50 700 Td
+(Topic config: num.partitions, replication.factor, min.insync.replicas, retention.ms, cleanup.policy.) Tj
+ET
+BT
+/F1 10 Tf
+50 685 Td
+(Do: use 3x replication, monitor lag, disk, and request latency in production.) Tj
+ET
+BT
+/F1 10 Tf
+50 670 Td
+(Dont: run single-broker production, ignore under-replicated partitions, or set acks=0 for critical topics.) Tj
+ET
+BT
+/F1 10 Tf
+50 655 Td
+(Metrics to monitor: underreplicated partitions, offline partitions, request queue time, lag, and GC pauses.) Tj
+ET
+BT
+/F1 10 Tf
+50 640 Td
+(Prometheus: scrape Kafka JMX exporter on port 7071 and visualize with Grafana.) Tj
+ET
+BT
+/F1 10 Tf
+50 625 Td
+(Example topic command: kafka-topics.sh --bootstrap-server localhost:9092 --create --topic prod.orders --partitions 6 --replication-factor 3) Tj
+ET
+BT
+/F1 10 Tf
+50 610 Td
+(Example describe command: kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group payment-processor-service) Tj
+ET
+BT
+/F1 10 Tf
+50 595 Td
+(Final summary: Kafka is built for durable, high-throughput, decoupled event streaming with modern KRaft leadership.) Tj
+ET
+endstream
+endobj
+12 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 15
+0000000000 65535 f 
+0000000010 00000 n 
+0000000062 00000 n 
+0000000123 00000 n 
+0000000824 00000 n 
+0000001538 00000 n 
+0000002258 00000 n 
+0000002969 00000 n 
+0000003677 00000 n 
+0000004317 00000 n 
+0000005001 00000 n 
+0000005682 00000 n 
+0000006071 00000 n 
+0000006425 00000 n 
+0000007222 00000 n 
+trailer
+<< /Root 1 0 R /Size 15 >>
+startxref
+7589
+%%EOF
