@@ -1,0 +1,237 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2940 >>
+stream
+BT
+/F1 18 Tf
+50 760 Td
+(Kafka Interview Guide) Tj
+ET
+BT
+/F1 11 Tf
+50 735 Td
+(1. Kafka basics) Tj
+ET
+BT
+/F1 9.5 Tf
+50 720 Td
+(Producer: sends records to topics, chooses target partition, batches data, and uses acks for reliability.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 708 Td
+(Consumer: reads from partitions with offsets, works in consumer groups, and each partition is processed by one consumer in a group.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 696 Td
+(Topic: logical stream of events. Partition: ordered log segment with offsets and parallelism. Broker: Kafka server process.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 684 Td
+(Storage: data is persisted to disk and replicated across brokers for durability and recovery.) Tj
+ET
+BT
+/F1 11 Tf
+50 660 Td
+(2. Zookeeper working) Tj
+ET
+BT
+/F1 9.5 Tf
+50 645 Td
+(Zookeeper maintains broker metadata, election state, membership, and leadership coordination in older Kafka deployments.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 633 Td
+(Leader election: controller watches broker liveness and picks a new leader from the ISR when a leader fails.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 621 Td
+(Follower election: followers replicate leader log and become eligible when they are caught up and in sync.) Tj
+ET
+BT
+/F1 11 Tf
+50 597 Td
+(3. KRaft working) Tj
+ET
+BT
+/F1 9.5 Tf
+50 582 Td
+(KRaft removes ZooKeeper and uses Raft-based consensus for metadata quorum and leadership election.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 570 Td
+(Leader election: a quorum elects a leader using term numbers and heartbeats. Followers replicate metadata logs.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 558 Td
+(Modern Kafka uses KRaft for simpler operations and no external coordination service.) Tj
+ET
+BT
+/F1 11 Tf
+50 534 Td
+(4. Kafka brokers) Tj
+ET
+BT
+/F1 9.5 Tf
+50 519 Td
+(Brokers receive producer writes, serve consumer reads, store partitions, replicate data, and maintain cluster state.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 507 Td
+(Important broker configs: listeners, advertised.listeners, log.dirs, num.io.threads, log.retention.hours, and replica.fetch.max.bytes.) Tj
+ET
+BT
+/F1 11 Tf
+50 483 Td
+(5. Interview Q&A) Tj
+ET
+BT
+/F1 9.5 Tf
+50 468 Td
+(Q: What is Kafka? A: Distributed streaming platform for real-time event delivery, durability, and scalable data pipelines.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 456 Td
+(Q: What is consumer group? A: Set of consumers that together read a topic, each partition handled by one consumer in the group.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 444 Td
+(Q: What is ISR? A: In-Sync Replicas, replicas caught up sufficiently to become a leader.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 432 Td
+(Q: Why use Kafka? A: High throughput, decoupling, replayability, fault tolerance, and horizontal scaling.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 420 Td
+(Q: What is offset? A: Unique position of a record in a partition.) Tj
+ET
+BT
+/F1 11 Tf
+50 396 Td
+(6. Scenario-based questions) Tj
+ET
+BT
+/F1 9.5 Tf
+50 381 Td
+(Scenario: consumer lag is rising. Answer: scale consumers, add partitions, fix processing bottlenecks, and monitor lag.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 369 Td
+(Scenario: broker down. Answer: followers continue serving reads if replication is healthy and leadership fails over.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 357 Td
+(Scenario: data loss. Answer: verify acks=all, replication factor, min.insync.replicas, and retries.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 345 Td
+(Scenario: duplicate reads. Answer: Kafka is at-least-once by default, so consumers need deduplication logic.) Tj
+ET
+BT
+/F1 11 Tf
+50 321 Td
+(7. Do's and Dont's) Tj
+ET
+BT
+/F1 9.5 Tf
+50 306 Td
+(Do: use replication factor 3, monitor lag, keep partitions aligned to consumer parallelism, and use acks=all for critical topics.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 294 Td
+(Dont: ignore under-replicated partitions, run single-broker production, or misconfigure topic partitions.) Tj
+ET
+BT
+/F1 11 Tf
+50 270 Td
+(8. Producer, consumer, topic configs) Tj
+ET
+BT
+/F1 9.5 Tf
+50 255 Td
+(Producer: bootstrap.servers, acks, retries, linger.ms, batch.size, compression.type, enable.idempotence.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 243 Td
+(Consumer: group.id, auto.offset.reset, enable.auto.commit, max.poll.records, session.timeout.ms, isolation.level.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 231 Td
+(Topic: num.partitions, replication.factor, retention.ms, cleanup.policy, min.insync.replicas.) Tj
+ET
+BT
+/F1 11 Tf
+50 207 Td
+(9. Monitoring and Prometheus) Tj
+ET
+BT
+/F1 9.5 Tf
+50 192 Td
+(Monitor: consumer lag, broker CPU, disk usage, replication lag, under-replicated partitions, bytes in and out, and request latency.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 180 Td
+(Prometheus scrape config: static_configs targets: [broker1:7071, broker2:7071, broker3:7071].) Tj
+ET
+BT
+/F1 9.5 Tf
+50 168 Td
+(JMX exporter exposes Kafka metrics, which Grafana visualizes for performance and scalability.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 156 Td
+(Production tip: keep quorum, broker health, lag, and storage usage under constant watch.) Tj
+ET
+BT
+/F1 9.5 Tf
+50 144 Td
+(This PDF is a compact summary of the Kafka guide created for interview preparation and production understanding.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000010 00000 n 
+0000000068 00000 n 
+0000000129 00000 n 
+0000000838 00000 n 
+0000002992 00000 n 
+0000003149 00000 n 
+trailer
+<< /Root 1 0 R /Size 6 >>
+startxref
+3207
+%%EOF
